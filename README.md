@@ -1,6 +1,6 @@
 # Scaffold Repo - ARCGIS Map
 
-> SvelteKit scaffold for SSG and PWAs 
+> SvelteKit scaffold for ARCGIS map applications
 
 ## Details
 
