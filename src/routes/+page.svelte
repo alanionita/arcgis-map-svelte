@@ -1,19 +1,16 @@
 <script lang="ts">
-	import * as Card from '$lib/components/ui/card';
+	import Map from '$lib/components/map.svelte';
+	import TitleCard from '$lib/components/titleCard.svelte';
+	import { browser } from '$app/environment';
+	// Manchester: longitude, latitude,
+	let lng: number = $state(-2.2446);
+	let lat: number = $state(53.4839);
 </script>
 
-<main class="md:container md:mx-auto flex-col justify-center content-center py-32">
+<TitleCard {lat} {lng} />
 
-    <Card.Root>
-        <Card.Header>
-            <Card.Title>Welcome to TEMPLATE_PROJECT</Card.Title>
-            <Card.Description>Card Description</Card.Description>
-        </Card.Header>
-        <Card.Content>
-            <p>Card Content</p>
-        </Card.Content>
-        <Card.Footer>
-            <p>Card Footer</p>
-        </Card.Footer>
-    </Card.Root>
-</main>
+{#if !browser}
+	<h2>Loading map...</h2>
+{:else}
+	<Map bind:lat bind:lng />
+{/if}
